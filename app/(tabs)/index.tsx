@@ -5,7 +5,7 @@ import {Link} from 'expo-router';
 export default function Index() {
   return (
     <View style={ styles.container}> 
-      <Text style={styles.text}>Deu certo !!!!</Text>
+      <Text style={styles.text}>Sejam Bem vindos</Text>
       <Link href="/about">Pagina sobre</Link>
     </View>
   );
@@ -14,14 +14,14 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
   flex: 1,
-  backgroundColor: '#4a9be78c',
+  backgroundColor: '#c7e9f78c',
   alignItems: 'center',
   justifyContent: 'center',
 
   },
   text:{
-    color: '#622be2',
-    fontSize: 40,
+    color: '#2b89e2',
+    fontSize: 35,
     fontWeight: 'bold',
 
   },
@@ -32,5 +32,4 @@ const styles = StyleSheet.create({
       color: 'blue',
   }
 
-  
 });

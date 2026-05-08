@@ -1,12 +1,13 @@
 import { Tabs } from "expo-router";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function TabLayout(){
   return(
        <Tabs
       screenOptions={{
-      tabBarActiveTintColor: '#77bce4',
+      tabBarActiveTintColor: '#dad9db',
       headerStyle:{
         backgroundColor:'#020202',
       },
@@ -33,6 +34,16 @@ export default function TabLayout(){
         title: 'about',
         tabBarIcon:({color, focused}) => (
           <MaterialCommunityIcons name={focused ? 'file-music' : 'file-music-outline'} color={color} size={24}/>
+        ),
+      }}
+     /> 
+
+       <Tabs.Screen
+      name="toDoList"
+      options={{
+        title: 'List',
+        tabBarIcon:({color, focused}) => (
+          <FontAwesome name={focused ? 'th-list' : 'list'} color={color} size={24}/>
         ),
       }}
      /> 

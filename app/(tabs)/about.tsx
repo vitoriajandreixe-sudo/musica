@@ -5,7 +5,9 @@ import {Link} from 'expo-router';
 export default function aboutScreen() {
   return (
     <View style={ styles.container}> 
-      <Text style={styles.text}>Informações de musicas </Text>
+      <Text style={styles.titulo}>Instrumentos Musicais </Text>
+            <Text style={styles.text}>Esta Página foi criado no intuito de alistarmos e conhecermos o máximo possível de instrumentos  </Text>
+
     </View>
   );
 }
@@ -13,16 +15,20 @@ export default function aboutScreen() {
 const styles = StyleSheet.create({
   container: {
   flex: 1,
-  backgroundColor: '#b8e9fc8c',
+  backgroundColor: '#260446c7',
   alignItems: 'center',
   justifyContent: 'center',
 
   },
-  text:{
+  titulo:{
     color: 'blue',
     fontSize: 30,
     fontWeight: 'bold',
-
+  },
+    text:{
+    color: 'blue',
+    fontSize: 20 ,
+    textAlign: 'center',
   },
 });
 

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 
   },
    titulo:{
-    color: 'blue',
+    color: 'black',
     fontSize: 15,
     fontWeight: 'bold',
   },

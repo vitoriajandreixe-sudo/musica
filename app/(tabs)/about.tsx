@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
 
   },
   titulo:{
-    color: 'blue',
+    color: 'purple',
     fontSize: 30,
     fontWeight: 'bold',
   },
     text:{
-    color: 'blue',
+    color: 'black',
     fontSize: 20 ,
     textAlign: 'center',
   },

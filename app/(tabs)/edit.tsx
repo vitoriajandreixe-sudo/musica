@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { ImageSourcePropType, View, StyleSheet } from "react-native";
 import Button from '@/components/Button';
 import ImageViewer from '@/components/ImageViewer';
 import * as ImagePicker from 'expo-image-picker';
@@ -7,15 +7,19 @@ import { useState } from 'react';
 import IconButton from '@/components/IconButton';
 import CircleButton from '@/components/CircleButton';
 import EmojiPicker from  '@/components/EmojiPicker';
-
+import EmojiList from '@/components/EmojiList';
+import EmojiSticker from '@/components/EmojiSticker';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const PlaceholderImage = require('@/assets/images/imageInstrumentos.jpg');
 
 export default function Edit()
+
 {
    const [selectedImage, setSelectedImage]= useState<string | undefined>(undefined);
    const [showAppOptions, setShowOptions] = useState<boolean>(false);
    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+   const [pickedEmoji, setPickedEmoji] = useState<ImageSourcePropType | undefined>(undefined);
 
     const pickImageAsync = async()=>{
         let result  = await ImagePicker.launchImageLibraryAsync({
@@ -51,9 +55,10 @@ export default function Edit()
 
 
     return (
-      <View style={styles.container}> 
+      <GestureHandlerRootView style={styles.container}> 
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage}/>
+        {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
       </View>
       {showAppOptions ?(
         <View style={styles.optionsContainer}>
@@ -72,9 +77,9 @@ export default function Edit()
         </View>
         )}
         <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
-            {/* a list of emoji component will go here*/}
+        <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose}/>
         </EmojiPicker>
-        </View>
+        </GestureHandlerRootView>
     );
 }
 

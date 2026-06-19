@@ -17,13 +17,13 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
   flex: 1,
-  backgroundColor: '#4411748c',
+  backgroundColor: '#ffffff8c',
   alignItems: 'center',
   justifyContent: 'center',
 
   },
   text:{
-    color: '#2b89e2',
+    color: '#683a9c',
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   button:{
       fontSize:25,
       textDecorationLine:'underline',
-      color: 'blue',
+      color: 'purple',
   },
   image: {
     width: 320,

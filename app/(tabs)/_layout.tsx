@@ -2,6 +2,7 @@ import { Tabs } from "expo-router";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Entypo from '@expo/vector-icons/Entypo';
 
 export default function TabLayout(){
   return(
@@ -47,7 +48,22 @@ export default function TabLayout(){
         ),
       }}
      /> 
+
+
+      <Tabs.Screen
+      name="buscaCep"
+      options={{
+        title: 'Cep',
+        tabBarIcon:({color, focused}) => (
+          <Entypo name={focused ? 'location' : 'location-pin'} color={color} size={24}/>
+        ),
+      }}
+     /> 
+       
+
+       
     
+     
     </Tabs>
        
   );

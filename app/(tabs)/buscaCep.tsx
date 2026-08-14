@@ -1,64 +1,242 @@
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useBuscaCep } from '@/hooks/useBuscaCep'; 
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useBuscaCep } from '@/hooks/useBuscaCep';
 
 export default function BuscaCEP() {
-  const { cep, setCep, endereco, buscarCEP } = useBuscaCep(); // Usando o hook
+
+  const {
+    cep,
+    setCep,
+    endereco,
+    buscarCEP
+  } = useBuscaCep();
 
   return (
-    <View style={styles.container}>
-      <Text>Consulte seu CEP</Text>
+    <ScrollView
+      style={styles.scroll}
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={true}
+    >
 
-      <TextInput
-        style={styles.textInput}
-        value={cep}
-        onChangeText={setCep}
-        placeholder="Digite o CEP"
-        keyboardType="numeric"
-      />
+      <Text style={styles.titulo}>
+        Consulte seu CEP 📍
+      </Text>
 
-      <Text>{cep}</Text>
+      <View style={styles.linha} />
 
-      <Button
-        title="Buscar"
-        onPress={buscarCEP}
-      />
+      <Text style={styles.subtitulo}>
+        Digite seu CEP para consultar o endereço
+      </Text>
+
+      <View style={styles.card}>
+
+        <Text style={styles.label}>
+          CEP
+        </Text>
+
+        <TextInput
+          style={styles.textInput}
+          value={cep}
+          onChangeText={setCep}
+          placeholder="Digite seu CEP"
+          placeholderTextColor="#999"
+          keyboardType="numeric"
+          maxLength={8}
+        />
+
+        <Pressable
+          style={styles.button}
+          onPress={buscarCEP}
+        >
+          <Text style={styles.buttonText}>
+            Buscar endereço
+          </Text>
+        </Pressable>
+
+      </View>
 
       {endereco.logradouro !== '' && (
+
         <View style={styles.result}>
-          <Text>Logradouro: {endereco.logradouro}</Text>
-          <Text>Bairro: {endereco.bairro}</Text>
-          <Text>Cidade: {endereco.localidade}</Text>
-          <Text>Estado: {endereco.uf}</Text>
+
+          <Text style={styles.resultTitulo}>
+            Endereço encontrado ✨
+          </Text>
+
+          <View style={styles.info}>
+            <Text style={styles.infoLabel}>
+              Logradouro
+            </Text>
+
+            <Text style={styles.infoText}>
+              {endereco.logradouro}
+            </Text>
+          </View>
+
+          <View style={styles.info}>
+            <Text style={styles.infoLabel}>
+              Bairro
+            </Text>
+
+            <Text style={styles.infoText}>
+              {endereco.bairro}
+            </Text>
+          </View>
+
+          <View style={styles.info}>
+            <Text style={styles.infoLabel}>
+              Cidade
+            </Text>
+
+            <Text style={styles.infoText}>
+              {endereco.localidade}
+            </Text>
+          </View>
+
+          <View style={styles.info}>
+            <Text style={styles.infoLabel}>
+              Estado
+            </Text>
+
+            <Text style={styles.infoText}>
+              {endereco.uf}
+            </Text>
+          </View>
+
         </View>
       )}
-    </View>
+
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+
+  scroll: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F7F3FA',
+  },
+
+  container: {
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
+    padding: 25,
+    paddingTop: 80,
+    paddingBottom: 40,
   },
+
+  titulo: {
+    color: '#683a9c',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  linha: {
+    width: 70,
+    height: 4,
+    backgroundColor: '#683a9c',
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 15,
+  },
+
+  subtitulo: {
+    color: '#555',
+    fontSize: 16,
+    textAlign: 'center',
+    marginBottom: 25,
+  },
+
+  card: {
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    padding: 22,
+    borderRadius: 16,
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
+
+    elevation: 4,
+  },
+
+  label: {
+    color: '#683a9c',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+
   textInput: {
-    width: '80%',
+    width: '100%',
     borderWidth: 1,
-    borderColor: 'gray',
-    padding: 8,
-    marginVertical: 10,
+    borderColor: '#D6C5E5',
+    backgroundColor: '#FAFAFA',
+    padding: 14,
+    borderRadius: 10,
+    fontSize: 16,
+    marginBottom: 15,
   },
+
+  button: {
+    backgroundColor: '#683a9c',
+    paddingVertical: 14,
+    borderRadius: 10,
+    alignItems: 'center',
+    elevation: 3,
+  },
+
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+
   result: {
+    width: '100%',
+    backgroundColor: '#FFFFFF',
     marginTop: 20,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 8,
+    padding: 22,
+    borderRadius: 16,
+
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
+
+    elevation: 4,
   },
-  text: {
-      fontSize: 30,
-      fontWeight: 'bold',
-  }, 
+
+  resultTitulo: {
+    color: '#683a9c',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 18,
+    textAlign: 'center',
+  },
+
+  info: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEEEEE',
+    paddingVertical: 10,
+  },
+
+  infoLabel: {
+    color: '#683a9c',
+    fontSize: 13,
+    fontWeight: 'bold',
+    marginBottom: 3,
+  },
+
+  infoText: {
+    color: '#444',
+    fontSize: 16,
+  },
+
 });

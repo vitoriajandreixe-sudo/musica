@@ -23,7 +23,7 @@ export default function TabLayout(){
        <Tabs.Screen
        name="index"
        options={{
-        title: 'Home',
+        title: 'Inicio',
         tabBarIcon:({color, focused}) => (
         <Ionicons name={focused ? 'musical-note-sharp' : 'musical-note-outline'} color={color} size={24}/>
       ),
@@ -32,7 +32,7 @@ export default function TabLayout(){
         <Tabs.Screen
       name="about"
       options={{
-        title: 'about',
+        title: 'Alvo',
         tabBarIcon:({color, focused}) => (
           <MaterialCommunityIcons name={focused ? 'file-music' : 'file-music-outline'} color={color} size={24}/>
         ),
@@ -42,7 +42,7 @@ export default function TabLayout(){
        <Tabs.Screen
       name="toDoList"
       options={{
-        title: 'List',
+        title: 'Lista',
         tabBarIcon:({color, focused}) => (
           <FontAwesome name={focused ? 'th-list' : 'list'} color={color} size={24}/>
         ),
@@ -65,7 +65,7 @@ export default function TabLayout(){
       <Tabs.Screen
       name="edit"
       options={{
-        title: 'Image',
+        title: 'Imagem',
         tabBarIcon:({color, focused}) => (
           <Ionicons name={focused ? 'image-sharp' : 'images'} color={color} size={24}/>
         ),

@@ -18,7 +18,7 @@ export default function BuscaCEP() {
     >
 
       <Text style={styles.titulo}>
-        Consulte seu CEP 📍
+        Encontre uma loja perto de você📍
       </Text>
 
       <View style={styles.linha} />

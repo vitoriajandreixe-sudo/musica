@@ -62,6 +62,15 @@ export default function TabLayout(){
        
 
        
+      <Tabs.Screen
+      name="edit"
+      options={{
+        title: 'Image',
+        tabBarIcon:({color, focused}) => (
+          <Ionicons name={focused ? 'image-sharp' : 'images'} color={color} size={24}/>
+        ),
+      }}
+     /> 
     
      
     </Tabs>

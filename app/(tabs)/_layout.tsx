@@ -3,19 +3,22 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Entypo from '@expo/vector-icons/Entypo';
+import {StatusBar} from 'expo-status-bar';
 
 export default function TabLayout(){
   return(
        <Tabs
       screenOptions={{
       tabBarActiveTintColor: '#dad9db',
+      tabBarInactiveTintColor: '#704788',
+
       headerStyle:{
-        backgroundColor:'#020202',
+        backgroundColor:'#c5a4db',
       },
         headerShadowVisible: false,
         headerTintColor: '#fff',
         tabBarStyle:{
-          backgroundColor: '#020202',
+          backgroundColor: '#c5a4db',
         },
      }}
      >
